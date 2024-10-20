@@ -3,12 +3,11 @@ package pkg;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
+
 
 public class Calculator extends JFrame {
 	Calculator() {
@@ -18,7 +17,7 @@ public class Calculator extends JFrame {
 		JPanel p = new JPanel();
 		p.setBackground(Color.WHITE);
 
-		JTextField t = new JTextField(50);
+		JTextArea t = new JTextArea(10,35);
 		t.setBackground(Color.WHITE);
 		p.add(t);
 		add(p, BorderLayout.NORTH);
@@ -27,10 +26,6 @@ public class Calculator extends JFrame {
 		p1.setBackground(Color.WHITE);
 		p1.setLayout(new GridLayout(4, 4));
 		add(p1, BorderLayout.SOUTH);
-		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(400, 550);
-		setVisible(true);
 
 		String[] button_names = { "7", "8", "9", "x", "4", "5", "6", "/", "1", "2", "3", "+", "C", "0", "=", "-" };
 
@@ -40,7 +35,10 @@ public class Calculator extends JFrame {
 
 			p1.add(b);
 
-			
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			setSize(400, 550);
+			setVisible(true);
+
 		}
 
 	}
