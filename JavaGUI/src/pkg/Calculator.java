@@ -33,7 +33,7 @@ public class Calculator extends JFrame {
 
 			if (name.equals("C") || name.equals("=") || name.equals("x") || name.equals("/") || name.equals("+")
 					|| name.equals("-")) {
-				b.setBackground(new Color(139, 69, 19));
+				b.setBackground(new Color(210, 180, 140));
 			} else {
 				b.setBackground(Color.LIGHT_GRAY);
 			}
