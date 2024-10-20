@@ -8,7 +8,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-
 public class Calculator extends JFrame {
 	Calculator() {
 		setTitle("계산기");
@@ -17,7 +16,7 @@ public class Calculator extends JFrame {
 		JPanel p = new JPanel();
 		p.setBackground(Color.WHITE);
 
-		JTextArea t = new JTextArea(10,40);
+		JTextArea t = new JTextArea(10, 40);
 		t.setBackground(Color.WHITE);
 		p.add(t);
 		add(p, BorderLayout.NORTH);
@@ -29,9 +28,15 @@ public class Calculator extends JFrame {
 
 		String[] button_names = { "7", "8", "9", "x", "4", "5", "6", "/", "1", "2", "3", "+", "C", "0", "=", "-" };
 
-		for (int i = 0; i < button_names.length; i++) {
-			JButton b = new JButton(button_names[i]);
-			b.setBackground(Color.LIGHT_GRAY);
+		for (String name : button_names) {
+			JButton b = new JButton(name);
+
+			if (name.equals("C") || name.equals("=") || name.equals("x") || name.equals("/") || name.equals("+")
+					|| name.equals("-")) {
+				b.setBackground(new Color(139, 69, 19));
+			} else {
+				b.setBackground(Color.LIGHT_GRAY);
+			}
 
 			p1.add(b);
 
