@@ -26,7 +26,7 @@ public class Calculator extends JFrame {
 		setVisible(true);
 		
 		JPanel p1 = new JPanel();
-		p1.setLayout(new GridLayout(5, 5, 2, 2)); 
+		p1.setLayout(new GridLayout(4, 4, 2, 2)); 
 		add(p1, BorderLayout.CENTER);
 
 	}
