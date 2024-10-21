@@ -1,14 +1,14 @@
 package pkg;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import java.awt.*;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
 
 public class Calculator extends JFrame {
+	String sign;
+	double firstNumber;
+	
 	Calculator() {
 		setTitle("계산기");
 		setLayout(new BorderLayout());
@@ -17,6 +17,7 @@ public class Calculator extends JFrame {
 		p.setBackground(Color.WHITE);
 
 		JTextArea t = new JTextArea(10, 33);
+
 		t.setEditable(false);
 		t.setBackground(Color.WHITE);
 		p.add(t);
@@ -46,13 +47,12 @@ public class Calculator extends JFrame {
 			setVisible(true);
 
 		}
-
+	
+		
 	}
 
 	public static void main(String[] args) {
 		new Calculator();
-
 	}
-
 }
 
