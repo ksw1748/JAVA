@@ -16,7 +16,8 @@ public class Calculator extends JFrame {
 		JPanel p = new JPanel();
 		p.setBackground(Color.WHITE);
 
-		JTextArea t = new JTextArea(10, 40);
+		JTextArea t = new JTextArea(10, 33);
+		t.setEditable(false);
 		t.setBackground(Color.WHITE);
 		p.add(t);
 		add(p, BorderLayout.NORTH);
@@ -54,3 +55,4 @@ public class Calculator extends JFrame {
 	}
 
 }
+
