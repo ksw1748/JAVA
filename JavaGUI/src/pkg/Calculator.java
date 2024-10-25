@@ -73,6 +73,7 @@ public class Calculator extends JFrame {
 				} else if (sign.equals("/")) {
 					result = firstNumber / secondNumber;
 				}
+				
 				t.setText(String.valueOf(result));
 			}
 		}
