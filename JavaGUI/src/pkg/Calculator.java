@@ -2,7 +2,7 @@ package pkg;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
-
+import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 public class Calculator extends JFrame {
@@ -40,6 +40,8 @@ public class Calculator extends JFrame {
 			} else {
 				b.setBackground(Color.LIGHT_GRAY);
 			}
+			
+			b.addActionListener(new ButtonClickListener()); 	
 
 			p1.add(b);
 
@@ -47,6 +49,12 @@ public class Calculator extends JFrame {
 			setSize(350, 550);
 			setVisible(true);
 
+		}
+		private class ButtonClickListener() implements ActionListener {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+			
 		}
 		
 	
