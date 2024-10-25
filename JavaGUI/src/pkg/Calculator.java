@@ -32,6 +32,7 @@ public class Calculator extends JFrame {
 
 		for (String name : button_names) {
 			JButton b = new JButton(name);
+			
 
 			if (name.equals("C") || name.equals("=") || name.equals("x") || name.equals("/") || name.equals("+")
 					|| name.equals("-")) {
@@ -47,6 +48,7 @@ public class Calculator extends JFrame {
 			setVisible(true);
 
 		}
+		
 	
 		
 	}
