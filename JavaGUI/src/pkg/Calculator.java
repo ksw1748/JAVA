@@ -73,8 +73,21 @@ public class Calculator extends JFrame {
 				} else if (sign.equals("/")) {
 					result = firstNumber / secondNumber;
 				}
-				
+
 				t.setText(String.valueOf(result));
+			} else if (command.equals("+") || command.equals("-") || command.equals("*") || command.equals("/")) {
+				firstNumber = Double.parseDouble(t.getText());
+				sign = command;
+				t.setText("");
+			} else {
+
+				if (t.getText().equals("0")) {
+
+					t.setText(command);
+				} else {
+
+					t.append(command);
+				}
 			}
 		}
 	}
