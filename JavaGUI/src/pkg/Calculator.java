@@ -8,6 +8,7 @@ import javax.swing.*;
 public class Calculator extends JFrame {
 	String sign;
 	double firstNumber;
+	double secondNumber;
 	
 	Calculator() {
 		setTitle("계산기");
@@ -52,6 +53,15 @@ public class Calculator extends JFrame {
 		}
 		private class ButtonClickListener() implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
+				String command = e.getActionCommand();
+				
+				if(command.equals("C")) {
+					t.setText("0");
+					firstNumber = 0;
+					secondNumber = 0;
+					
+				}
+
 				
 			}
 			
