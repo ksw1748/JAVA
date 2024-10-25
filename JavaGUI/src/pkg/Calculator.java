@@ -9,7 +9,8 @@ public class Calculator extends JFrame {
 	String sign;
 	double firstNumber;
 	double secondNumber;
-	
+	double result = 0;
+
 	Calculator() {
 		setTitle("계산기");
 		setLayout(new BorderLayout());
@@ -55,10 +56,21 @@ public class Calculator extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String command = e.getActionCommand();
 				
-				if(command.equals("C")) {
+				if (command.equals("C")) {
 					t.setText("0");
 					firstNumber = 0;
 					secondNumber = 0;
+					
+					
+					
+				}if (sign.equals("+")) {
+					result = firstNumber + secondNumber;
+				} else if (sign.equals("-")) {
+					result = firstNumber - secondNumber;
+				} else if (sign.equals("x")) {
+					result = firstNumber * secondNumber;
+				} else if (sign.equals("/")) {
+					result = firstNumber / secondNumber;
 					
 				}
 
@@ -75,4 +87,3 @@ public class Calculator extends JFrame {
 		new Calculator();
 	}
 }
-
