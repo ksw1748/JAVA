@@ -9,7 +9,7 @@ public class Calculator extends JFrame {
 	String sign;
 	double firstNumber;
 	double secondNumber;
-	
+	JTextArea t;
 
 	Calculator() {
 		setTitle("계산기");
@@ -18,10 +18,10 @@ public class Calculator extends JFrame {
 		JPanel p = new JPanel();
 		p.setBackground(Color.WHITE);
 
-		JTextArea t = new JTextArea(10, 33);
-
+		t = new JTextArea(10, 33);
 		t.setEditable(false);
 		t.setBackground(Color.WHITE);
+
 		p.add(t);
 		add(p, BorderLayout.NORTH);
 
@@ -34,7 +34,6 @@ public class Calculator extends JFrame {
 
 		for (String name : button_names) {
 			JButton b = new JButton(name);
-			
 
 			if (name.equals("C") || name.equals("=") || name.equals("x") || name.equals("/") || name.equals("+")
 					|| name.equals("-")) {
@@ -42,37 +41,41 @@ public class Calculator extends JFrame {
 			} else {
 				b.setBackground(Color.LIGHT_GRAY);
 			}
-			
-			b.addActionListener(new ButtonClickListener()); 	
 
+			b.addActionListener(new ButtonClickListener());
 			p1.add(b);
 
-			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setSize(350, 550);
-			setVisible(true);
-
 		}
-		private class ButtonClickListener() implements ActionListener {
-			public void actionPerformed(ActionEvent e) {
-				String command = e.getActionCommand();
-				
-				if (command.equals("C")) {
-					t.setText("0");
-					firstNumber = 0;
-					secondNumber = 0;
-				}else if (command.equals("=")) {
-					secondNumber = Double.parseDouble(t.getText());
-					double result = 0;
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(350, 550);
+		setVisible(true);
+	}
+
+	private class ButtonClickListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			String command = e.getActionCommand();
+
+			if (command.equals("C")) {
+				t.setText("0");
+				firstNumber = 0;
+				secondNumber = 0;
+			} else if (command.equals("=")) {
+				secondNumber = Double.parseDouble(t.getText());
+				double result = 0;
+
+				if (sign.equals("+")) {
+					result = firstNumber + secondNumber;
+				} else if (sign.equals("-")) {
+					result = firstNumber - secondNumber;
+				} else if (sign.equals("x")) {
+					result = firstNumber * secondNumber;
+				} else if (sign.equals("/")) {
+					result = firstNumber / secondNumber;
 				}
-				
-
-				
+				t.setText(String.valueOf(result));
 			}
-			
 		}
-		
-	
-		
 	}
 
 	public static void main(String[] args) {
