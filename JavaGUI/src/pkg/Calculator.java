@@ -22,7 +22,7 @@ public class Calculator extends JFrame {
         l.setFont(new Font("Arial", Font.BOLD, 30)); 
         l.setOpaque(true); 
         l.setBackground(Color.WHITE); 
-        l.setPreferredSize(new Dimension(300, 50)); 
+        l.setPreferredSize(new Dimension(300, 100)); 
 
 		p.add(l);
 		add(p, BorderLayout.NORTH);
