@@ -75,7 +75,7 @@ public class Calculator extends JFrame {
 				}
 
 				t.setText(String.valueOf(result));
-			} else if (command.equals("+") || command.equals("-") || command.equals("*") || command.equals("/")) {
+			} else if (command.equals("+") || command.equals("-") || command.equals("x") || command.equals("/")) {
 				firstNumber = Double.parseDouble(t.getText());
 				sign = command;
 				t.setText("");
