@@ -29,7 +29,7 @@ public class Calculator extends JFrame {
 
 		JPanel p1 = new JPanel();
 		p1.setBackground(Color.WHITE);
-		p1.setLayout(new GridLayout(4, 4, 2, 2));
+		p1.setLayout(new GridLayout(4, 4, 2, 2));	
 		add(p1, BorderLayout.CENTER);
 
 		String[] button_names = { "7", "8", "9", "x", "4", "5", "6", "/", "1", "2", "3", "+", "C", "0", "=", "-" };
@@ -77,10 +77,28 @@ public class Calculator extends JFrame {
 				}
 
 				l.setText(String.valueOf(result));
+				sign = "";
+				firstNumber = result;
 			} else if (command.equals("+") || command.equals("-") || command.equals("x") || command.equals("/")) {
-				firstNumber = Double.parseDouble(l.getText());
-				sign = command;
-				l.setText("");
+				if (!sign.isEmpty()) {
+					secondNumber = Double.parseDouble(l.getText());
+					double result = 0;
+					
+					if (sign.equals("+")) {
+                        result = firstNumber + secondNumber;
+                    } else if (sign.equals("-")) {
+                        result = firstNumber - secondNumber;
+                    } else if (sign.equals("x")) {
+                        result = firstNumber * secondNumber;
+                    } else if (sign.equals("/")) {
+                        result = firstNumber / secondNumber;
+                    }
+					
+					firstNumber = result;
+					l.setText(String.valueOf(result));
+					 
+				}
+				
 			} else {
 
 				if (l.getText().equals("0")) {
