@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 public class Calculator extends JFrame {
-	String sign;
+	String sign = "";
 	double firstNumber;
 	double secondNumber;
 	JLabel l;
@@ -18,18 +18,18 @@ public class Calculator extends JFrame {
 		JPanel p = new JPanel();
 		p.setBackground(Color.WHITE);
 
-		l = new JLabel("0", SwingConstants.RIGHT); 
-        l.setFont(new Font("Arial", Font.BOLD, 30)); 
-        l.setOpaque(true); 
-        l.setBackground(Color.WHITE); 
-        l.setPreferredSize(new Dimension(300, 100)); 
+		l = new JLabel("0", SwingConstants.RIGHT);
+		l.setFont(new Font("Arial", Font.BOLD, 30));
+		l.setOpaque(true);
+		l.setBackground(Color.WHITE);
+		l.setPreferredSize(new Dimension(300, 100));
 
 		p.add(l);
 		add(p, BorderLayout.NORTH);
 
 		JPanel p1 = new JPanel();
 		p1.setBackground(Color.WHITE);
-		p1.setLayout(new GridLayout(4, 4, 2, 2));	
+		p1.setLayout(new GridLayout(4, 4, 2, 2));
 		add(p1, BorderLayout.CENTER);
 
 		String[] button_names = { "7", "8", "9", "x", "4", "5", "6", "/", "1", "2", "3", "+", "C", "0", "=", "-" };
@@ -62,6 +62,7 @@ public class Calculator extends JFrame {
 				l.setText("");
 				firstNumber = 0;
 				secondNumber = 0;
+				sign = "";
 			} else if (command.equals("=")) {
 				secondNumber = Double.parseDouble(l.getText());
 				double result = 0;
@@ -83,30 +84,34 @@ public class Calculator extends JFrame {
 				if (!sign.isEmpty()) {
 					secondNumber = Double.parseDouble(l.getText());
 					double result = 0;
-					
+
 					if (sign.equals("+")) {
-                        result = firstNumber + secondNumber;
-                    } else if (sign.equals("-")) {
-                        result = firstNumber - secondNumber;
-                    } else if (sign.equals("x")) {
-                        result = firstNumber * secondNumber;
-                    } else if (sign.equals("/")) {
-                        result = firstNumber / secondNumber;
-                    }
-					
+						result = firstNumber + secondNumber;
+					} else if (sign.equals("-")) {
+						result = firstNumber - secondNumber;
+					} else if (sign.equals("x")) {
+						result = firstNumber * secondNumber;
+					} else if (sign.equals("/")) {
+						result = firstNumber / secondNumber;
+					}
+
 					firstNumber = result;
 					l.setText(String.valueOf(result));
-					 
+
+				} else {
+					firstNumber = Double.parseDouble(l.getText());
 				}
-				
+				sign = command;
+				l.setText("");
+
 			} else {
 
 				if (l.getText().equals("0")) {
 
 					l.setText(command);
 				} else {
-                    l.setText(l.getText() + command); 
-                }
+					l.setText(l.getText() + command);
+				}
 			}
 		}
 	}
