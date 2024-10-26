@@ -9,7 +9,7 @@ public class Calculator extends JFrame {
 	String sign;
 	double firstNumber;
 	double secondNumber;
-	JTextArea t;
+	JLabel l;
 
 	Calculator() {
 		setTitle("계산기");
@@ -18,11 +18,13 @@ public class Calculator extends JFrame {
 		JPanel p = new JPanel();
 		p.setBackground(Color.WHITE);
 
-		t = new JTextArea(10, 33);
-		t.setEditable(false);
-		t.setBackground(Color.WHITE);
+		l = new JLabel("0", SwingConstants.RIGHT); 
+        l.setFont(new Font("Arial", Font.BOLD, 30)); 
+        l.setOpaque(true); 
+        l.setBackground(Color.WHITE); 
+        l.setPreferredSize(new Dimension(300, 50)); 
 
-		p.add(t);
+		p.add(l);
 		add(p, BorderLayout.NORTH);
 
 		JPanel p1 = new JPanel();
@@ -57,11 +59,11 @@ public class Calculator extends JFrame {
 			String command = e.getActionCommand();
 
 			if (command.equals("C")) {
-				t.setText("0");
+				l.setText("");
 				firstNumber = 0;
 				secondNumber = 0;
 			} else if (command.equals("=")) {
-				secondNumber = Double.parseDouble(t.getText());
+				secondNumber = Double.parseDouble(l.getText());
 				double result = 0;
 
 				if (sign.equals("+")) {
@@ -74,20 +76,19 @@ public class Calculator extends JFrame {
 					result = firstNumber / secondNumber;
 				}
 
-				t.setText(String.valueOf(result));
+				l.setText(String.valueOf(result));
 			} else if (command.equals("+") || command.equals("-") || command.equals("x") || command.equals("/")) {
-				firstNumber = Double.parseDouble(t.getText());
+				firstNumber = Double.parseDouble(l.getText());
 				sign = command;
-				t.setText("");
+				l.setText("");
 			} else {
 
-				if (t.getText().equals("0")) {
+				if (l.getText().equals("0")) {
 
-					t.setText(command);
+					l.setText(command);
 				} else {
-
-					t.append(command);
-				}
+                    l.setText(l.getText() + command); 
+                }
 			}
 		}
 	}
