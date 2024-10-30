@@ -151,7 +151,7 @@ public class Calculator extends JFrame {
     /**
      * 계산기 애플리케이션을 실행하는 메인 메서드입니다.
      *
-     * @param args 커맨드 라인 인자 (사용되지 않음)
+     * @param args 커맨드 라인 인자 - 사용되지 않음
      */
     public static void main(String[] args) {
         new Calculator();
