@@ -36,6 +36,7 @@ public class Calculator extends JFrame {
 
 		for (String name : button_names) {
 			JButton b = new JButton(name);
+			b.setFont(new Font("Arial", Font.BOLD, 20));
 
 			if (name.equals("C") || name.equals("=") || name.equals("x") || name.equals("/") || name.equals("+")
 					|| name.equals("-")) {
@@ -59,7 +60,7 @@ public class Calculator extends JFrame {
 			String command = e.getActionCommand();
 
 			if (command.equals("C")) {
-				l.setText("");
+				l.setText("0");
 				firstNumber = 0;
 				secondNumber = 0;
 				sign = "";
